@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="description" content="就日記啊！">
+    <meta name="keywords" content="日記啊！">
+    <meta name="author" content="Liu,Bo-Yu(劉柏余)">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- reset css version of html5 -->
+    <link rel="stylesheet" href="/css/reset.css">
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="/bootstrap-4/css/bootstrap.min.css" />
+    <!-- jQuery CDN -->
+    <script src="/bootstrap-4/js/jquery-3.2.1.min.js"></script>
+    <!-- Bootstrap Js CDN -->
+    <script src="/bootstrap-4/js/bootstrap.min.js"></script>
+    <!-- 放進font awesome CSS -->
+    <link rel="stylesheet" href="/css/all.css" />
+    <title>日記</title>
+    <style>
+        .card p {
+            text-indent: 2em;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col col-12">
+                <br />
+            </div>
+            <div class="col col-12">
+                <div class="card">
+                    <div class="card-header">
+                        2019/08/21 運動好累喔！
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">老了！</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">無馱無馱無馱無馱!!!</h6>
+                        <p class="card-text">
+                            &#9;太久沒動了！不管是游泳還是跑步，快掛了！
+                        </p>
+                        <p class="boy-hidden d-none">
+                            但這幾天這樣堅持下來，體力有好一些，晚上不吃飯也漸漸習慣，繼續保持囉！另外就是一定要找一天把房間收一下，好煩啊！
+                        </p>
+                        <!-- <img class="img-fluid" src="" alt="圖文不符"> -->
+
+                    </div>
+                    <div class="card-footer keyword">
+                        keyword: 跑步, 游泳
+                    </div>
+                </div> <!-- div.card end -->
+            </div> <!-- div.col end -->
+
+            <div class="w-100">
+                <!-- 這是美麗的分隔列 -->
+                <br />
+            </div>
+
+            <div class="col col-12">
+                <div class="card">
+                    <div class="card-header">
+                        2019/08/20 第一篇
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">聚餐</h5>
+                        <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
+                        <p class="card-text">
+                            &#9;久偉的聚餐，好久沒看到昱函，她真得愈來愈美了！突然想到曾經夢到她變成我老婆就覺得好笑，有夢最美！噗！
+                            阿彥也在感嘆自己的身體不大OK，哈哈哈哈哈！我也有同感，不過好像我老得比他快！
+                        </p>
+                        <p class="boy-hidden d-none">
+                            總之，大家健康快樂平安就好！
+                        </p>
+                        <!-- <img class="img-fluid" src="" alt="圖文不符"> -->
+
+                    </div>
+                    <div class="card-footer keyword">
+                        keyword: 嗯！沒有關鍵字
+                    </div>
+                </div> <!-- div.card end -->
+            </div> <!-- div.col end -->
+
+        </div> <!-- div.row end -->
+    </div> <!-- div.container end -->
+
+
+    <script type="text/javascript">
+        /** ################################################################################
+         *  @description 當user移到 card上後顯示，移出後隱藏
+         * ################################################################################ */
+        $(".card").hover(function (event) {
+            $(this).find(".boy-hidden").toggleClass("d-none");
+        });
+    </script>
+
+
+</body>
+
+</html>
