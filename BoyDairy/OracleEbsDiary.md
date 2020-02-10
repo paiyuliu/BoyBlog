@@ -1,0 +1,50 @@
+---
+title: Oracle EBS 日誌
+author: 
+date: 2019/12/16
+---
+===
+# TW200200064 2020/02/06
+<p>
+內購單I0006742 已出貨Z0012676 ,其中一筆 54GUP0301HK1 庫別誤FA 正確是AA庫 ,庫房無法收料
+</p>
+<p>
+分析：修改 PO_DISTRIBUTIONS_ALL.DESTINATION_SUBINVENTORY及
+UMPOF026.subinventory
+</p>
+
+   ```sql
+    SELECT PHA.PO_HEADER_ID,
+           PHA.SEGMENT1,
+           PLA.LINE_NUM,
+           PLA.PO_LINE_ID,
+           PLLA.LINE_LOCATION_ID,
+           PDA.DESTINATION_SUBINVENTORY
+    --   ,rt.TRANSACTION_TYPE
+    FROM PO_LINES_ALL          PLA,
+         PO_HEADERS_ALL        PHA,
+         PO_LINE_LOCATIONS_ALL PLLA,
+         PO_DISTRIBUTIONS_ALL  PDA
+    --       ,rcv_transactions rt
+    WHERE 1 = 1
+    AND PHA.PO_HEADER_ID = PLA.PO_HEADER_ID
+    AND PHA.SEGMENT1 = 'Z0012676'
+    AND PLA.LINE_NUM = 1
+    AND PLA.PO_LINE_ID = PLLA.PO_LINE_ID
+    AND PLA.PO_LINE_ID = PDA.PO_LINE_ID
+    AND PLLA.LINE_LOCATION_ID = PDA.LINE_LOCATION_ID
+    --   AND rt.PO_DISTRIBUTION_ID = pda.PO_DISTRIBUTION_ID
+    ;
+
+    -- ASN收料作業
+    SELECT a.subinventory
+    FROM UMPOF026 A
+    WHERE PO_HEADER_ID = 467532
+    AND A.PO = 'Z0012676'
+    AND LINE_NUM = 1
+    ;
+   ```
+
+
+
+
